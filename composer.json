@@ -1,0 +1,27 @@
+{
+	"name": "ser/nagios",
+	"type": "phpbb-extension",
+        "description": "Nagios health monitoring",
+        "homepage": "https://github.com/ser/phpbb-nagios",
+	"version": "0.0.1",
+	"time": "2015-02-28",
+	"license": "GPL-2.0",
+	"authors": [{
+			"name": "Serge Victor",
+			"email": "phpbb@random.re",
+			"homepage": "https://github.com/ser",
+			"role": "CTO"
+		}],
+	"require": {
+		"php": ">=5.3.3"
+	},
+	"require-dev": {
+		"phpbb/epv": "dev-master"
+	},
+	"extra": {
+		"display-name": "Nagios health monitoring",
+		"soft-require": {
+			"phpbb/phpbb": ">=3.1.0-RC2,<3.2.*@dev"
+		}
+	}
+}
