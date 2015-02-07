@@ -30,14 +30,14 @@ class main_module
 				trigger_error('FORM_INVALID');
 			}
 
-			$config->set('ser_nagios_goodbye', $request->variable('ser_nagios_goodbye', 0));
+			$config->set('ser_nagios_state', $request->variable('ser_nagios_state', 0));
 
-			trigger_error($user->lang('ACP_NAGIOS_SETTING_SAVED') . adm_back_link($this->u_action));
+                        trigger_error($user->lang('ACP_NAGIOS_SETTING_SAVED') . adm_back_link($this->u_action));
 		}
 
 		$template->assign_vars(array(
 			'U_ACTION'				=> $this->u_action,
-			'SER_NAGIOS_GOODBYE'		=> $config['ser_nagios_goodbye'],
+			'SER_NAGIOS_STATE'		=> $config['ser_nagios_state'],
 		));
 	}
 }
