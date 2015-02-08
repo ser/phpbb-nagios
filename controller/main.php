@@ -139,8 +139,6 @@ class main
 
             // Checking if we have a fresh instance of phpBB
             $updates_available = $this->phpbb_freshness();
-            $template->assign_vars(array(
-            ))
 
             // Count users
             $regusers = $this->get_number_of_active_users();
