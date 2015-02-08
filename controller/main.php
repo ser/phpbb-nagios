@@ -112,9 +112,6 @@ class main
                     'VERSIONCHECK_FAIL_REASON'  => ($e->getMessage() !== $user->lang('VERSIONCHECK_FAIL')) ? $e->getMessage() : '',
                 ));
             }
-
-            var_dump($this->template);
-
         }
 
 	/**
