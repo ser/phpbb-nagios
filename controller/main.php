@@ -97,19 +97,19 @@ class main
                 $updates_available = $version_helper->get_suggested_updates($force_update, $force_cache);
                 print_r(array_values($updates_available));
 
-                $template->assign_vars(array(
+                $this->template->assign_vars(array(
                     'S_UP_TO_DATE'      => empty($updates_available),
                     'UP_TO_DATE_MSG'    => $this->user->lang(empty($updates_available) ? 'UP_TO_DATE' : 'NOT_UP_TO_DATE', $md_manager->get_metadata('display-name')),
                 ));
 
                 foreach ($updates_available as $branch => $version_data)
                 {
-                    $template->assign_block_vars('updates_available', $version_data);
+                    $this->template->assign_block_vars('updates_available', $version_data);
                 }
             }
             catch (\RuntimeException $e)
             {
-                $template->assign_vars(array(
+                $this->template->assign_vars(array(
                     'S_VERSIONCHECK_STATUS'      => $e->getCode(),
                     'VERSIONCHECK_FAIL_REASON'  => ($e->getMessage() !== $user->lang('VERSIONCHECK_FAIL')) ? $e->getMessage() : '',
                 ));
