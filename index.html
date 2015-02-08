@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="Phpbb-nagios : A nagios phpBB extension for forum health monitoring.">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Phpbb-nagios</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/ser/phpbb-nagios">View on GitHub</a>
+
+          <h1 id="project_title">Phpbb-nagios</h1>
+          <h2 id="project_tagline">A nagios phpBB extension for forum health monitoring.</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/ser/phpbb-nagios/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/ser/phpbb-nagios/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h6>
+<a id="stage-alpha-absolutely-not-ready-for-production" class="anchor" href="#stage-alpha-absolutely-not-ready-for-production" aria-hidden="true"><span class="octicon octicon-link"></span></a>Stage <code>ALPHA</code>, absolutely not ready for production!</h6>
+
+<h1>
+<a id="phpbb-nagios" class="anchor" href="#phpbb-nagios" aria-hidden="true"><span class="octicon octicon-link"></span></a>phpbb-nagios</h1>
+
+<p>A nagios phpBB extension for forum health monitoring.</p>
+
+<h2>
+<a id="main-aims" class="anchor" href="#main-aims" aria-hidden="true"><span class="octicon octicon-link"></span></a>Main aims</h2>
+
+<p>This extension helps to monitor a production phpBB forum, reporting its health.</p>
+
+<h4>
+<a id="what-is-being-checked" class="anchor" href="#what-is-being-checked" aria-hidden="true"><span class="octicon octicon-link"></span></a>What is being checked?</h4>
+
+<p>The most basic check is done by serving any valid 200 response. It means that
+web server is working. Additionally, the nagios phpBB extension checks:</p>
+
+<ul>
+<li>[ ] it checks and servers the version of phpBB, if the phpBB version is not up to date, the extension sends a <code>WARNING</code> with a short explanation,</li>
+<li>[ ] it checks if the forum is ON, if not, the extension serves a <code>WARNING</code> with a short
+explanation,</li>
+<li>[ ] for statistical purposes, the extension provides an amount of currently registered
+users.</li>
+</ul>
+
+<h4>
+<a id="what-precisely-do-i-get-from-this-extension" class="anchor" href="#what-precisely-do-i-get-from-this-extension" aria-hidden="true"><span class="octicon octicon-link"></span></a>What precisely do I get from this extension?</h4>
+
+<p>If your forum is fine, the extension simply serves you a web page consisting of one line:</p>
+
+<p><code>OK. phpBB forum is ON. The current 3.1.3 version is up to date. 2453345 registered users.</code></p>
+
+<p>If something is wrong, it servers a line like that:</p>
+
+<p><code>WARNING. phpBB forum is ON. The current 3.1.2 version is NOT up to date. 2453345 registered users.</code></p>
+
+<h2>
+<a id="the-author" class="anchor" href="#the-author" aria-hidden="true"><span class="octicon octicon-link"></span></a>The author</h2>
+
+<p>Serge Victor, <a href="https://keybase.io/ser">https://keybase.io/ser</a></p>
+
+<p>The discuss about the extension is on phpBB forum:
+<a href="https://www.phpbb.com/community/viewtopic.php?f=456&amp;t=2294286">https://www.phpbb.com/community/viewtopic.php?f=456&amp;t=2294286</a></p>
+
+<p>Please do not hesitate to send github pull requests or create issues :-)</p>
+
+<p>Thanks to #phpbb IRC channel members for consultations during all stages of
+development of this extension.</p>
+
+<h2>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span class="octicon octicon-link"></span></a>License</h2>
+
+<p><a href="http://opensource.org/licenses/GPL-2.0">GNU General Public License v2</a></p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Phpbb-nagios maintained by <a href="https://github.com/ser">ser</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
