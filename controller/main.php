@@ -87,7 +87,7 @@ class main
             $this->user->add_lang_ext('ser/nagios', 'common');
 
             $regusers = get_number_of_active_users();
-            $l_message = "ALA"
+            $l_message = "ALA";
 
             return $this->helper->render('nagios_body.html', $name);
 	}
