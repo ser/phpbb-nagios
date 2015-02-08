@@ -88,6 +88,7 @@ class main
             $version_helper = $this->phpbb_container->get('version_helper');
 
             $updates_available = $version_helper->get_suggested_updates('versioncheck_force');
+            print($updates_available);
         }
 
 	/**
