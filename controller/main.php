@@ -82,7 +82,6 @@ class main
         protected function phpbb_freshness()
         {
 
-            
             // we have ready function for it in phpBB core
             /* @var $version_helper \phpbb\version_helper */
             $version_helper = $this->phpbb_container->get('version_helper');
@@ -98,9 +97,9 @@ class main
                 print_r(array_values($updates_available));
 
                 $this->template->assign_vars(array(
+                    'CURRENT_VERSION'   => $this->config['version'],
                     'S_UP_TO_DATE'      => empty($updates_available),
                     'UP_TO_DATE_MSG'    => $this->user->lang(empty($updates_available) ? 'UP_TO_DATE' : 'NOT_UP_TO_DATE'),
-                    'CURRENT_VERSION'   => $this->config['version'],
                 ));
 
                 foreach ($updates_available as $branch => $version_data)
