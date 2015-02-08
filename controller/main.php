@@ -87,8 +87,8 @@ class main
             /* @var $version_helper \phpbb\version_helper */
             $version_helper = $this->phpbb_container->get('version_helper');
 
-            // We enforce real check, not relying on ACP standard values, as we
-            //      really wan to have fresh information
+            // We enforce real check, not relying on ACP user settings, as we
+            //      really want to have fresh information
             $force_update = true;
             $force_cache = false;
 
