@@ -68,7 +68,8 @@ class main
             $user_count = $this->db->sql_fetchrow($result);
             $this->db->sql_freeresult($result);
 
-            return $user_count;
+            //return $user_count;
+            return array_values($user_count);
         }
 
 	/**
