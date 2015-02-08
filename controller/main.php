@@ -94,7 +94,8 @@ class main
             try
             {
                 $updates_available = $version_helper->get_suggested_updates($force_update, $force_cache);
-                print_r(array_values($updates_available));
+                // debug
+                //print_r(array_values($updates_available));
 
                 $this->template->assign_vars(array(
                     'CURRENT_VERSION'   => $this->config['version'],
