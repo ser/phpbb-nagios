@@ -1,0 +1,15 @@
+services:
+    ser.nagios.controller:
+        class: ser\nagios\controller\main
+        arguments:
+            - @config
+            - @controller.helper
+            - @template
+            - @user
+    ser.nagios.listener:
+        class: ser\nagios\event\main_listener
+        arguments:
+            - @controller.helper
+            - @template
+        tags:
+            - { name: event.listener }

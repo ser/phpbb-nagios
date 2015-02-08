@@ -1,0 +1,3 @@
+ser_nagios_controller:
+    path: /nagios/{name}
+    defaults: { _controller: ser.nagios.controller:handle }
