@@ -42,7 +42,7 @@ class main
             \phpbb\db\driver\driver_interface $db, 
             \phpbb\controller\helper $helper, 
             \phpbb\template\template $template,
-            \phpbb\user $user,
+            \phpbb\user $user
             )
 	{
                 $this->config = $config;
