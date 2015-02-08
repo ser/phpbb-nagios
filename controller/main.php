@@ -65,7 +65,7 @@ class main
                 . USERS_TABLE . 
                 ' WHERE user_type=0';
             $result = $this->db->sql_query($sql);
-            $user_count = this->db->sql_fetchrow($result);
+            $user_count = $this->db->sql_fetchrow($result);
             $this->db->sql_freeresult($result);
 
             return $user_count;
