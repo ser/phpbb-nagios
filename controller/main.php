@@ -113,7 +113,7 @@ class main
                 ));
             }
 
-            print_r(array_values(get_defined_vars()));
+            var_dump($this->template);
 
         }
 
