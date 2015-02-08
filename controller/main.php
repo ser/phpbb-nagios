@@ -81,7 +81,7 @@ class main
         //
 
             $user->add_lang_ext('ser/nagios', 'common');
-            regusers = get_number_of_active_users();
+            $regusers = get_number_of_active_users();
 
             return $this->helper->render('nagios_body.html', $name);
 	}
