@@ -93,6 +93,8 @@ class main
             // Checking the phpBB version
             $version_helper = $this->phpbb_container->get('version_helper');
 
+            print($version_helper)
+
             // Get translation
             $this->user->add_lang_ext('ser/nagios', 'common');
 
