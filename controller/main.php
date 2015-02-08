@@ -62,7 +62,7 @@ class main
         {
             // SQL query tp get all active users 
             $sql = 'SELECT COUNT(*) AS howmany'
-                ' FROM '. USERS_TABLE . 
+                ' FROM '. USERS_TABLE .
                 ' WHERE user_type=0';
             $result = $this->db->sql_query($sql);
             $user_count = $this->db->sql_fetchrow($result);
@@ -84,7 +84,7 @@ class main
         //$this->template->assign_var('NAGIOS_ACTIVE_USERS_TEXT', $this->user->lang($l_message, $name));
 
             // Checking the phpBB version
-            $version_helper = $phpbb_container->get('version_helper');
+            //$version_helper = $phpbb_container->get('version_helper');
 
             // Get translation
             $this->user->add_lang_ext('ser/nagios', 'common');
