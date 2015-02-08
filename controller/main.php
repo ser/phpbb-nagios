@@ -23,6 +23,7 @@ class main
 	/* @var \phpbb\template\template */
         protected $template;
 
+
         /* @var \phpbb\user */
         protected $user;
 
@@ -44,16 +45,16 @@ class main
             \phpbb\db\driver\driver_interface $db, 
             \phpbb\controller\helper $helper, 
             \phpbb\template\template $template,
-            \Symfony\Component\DependencyInjection\ContainerInterface $phpbb_container,
-            \phpbb\user $user
+            \phpbb\user $user,
+            \Symfony\Component\DependencyInjection\ContainerInterface $phpbb_container
             )
 	{
                 $this->config = $config;
                 $this->db = $db;
                 $this->helper = $helper;
                 $this->template = $template;
-                $this->phpbb_container = $phpbb_container;
                 $this->user = $user;
+                $this->phpbb_container = $phpbb_container;
 	}
 
         /**
