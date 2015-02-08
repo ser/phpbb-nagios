@@ -99,7 +99,7 @@ class main
 
                 $this->template->assign_vars(array(
                     'S_UP_TO_DATE'      => empty($updates_available),
-                    'UP_TO_DATE_MSG'    => $this->user->lang(empty($updates_available) ? 'UP_TO_DATE' : 'NOT_UP_TO_DATE', $md_manager->get_metadata('display-name')),
+                    'UP_TO_DATE_MSG'    => $this->user->lang(empty($updates_available) ? 'UP_TO_DATE' : 'NOT_UP_TO_DATE',
                 ));
 
                 foreach ($updates_available as $branch => $version_data)
