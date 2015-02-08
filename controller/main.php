@@ -95,6 +95,7 @@ class main
             $this->template->assign_var('NAGIOS_ACTIVE_USERS', $regusers);
 
             // And finally display the status page
-            return $this->helper->render('nagios_body.html', $name);
+            return $this->helper->render('nagios_body.html');
 	}
+}
 
