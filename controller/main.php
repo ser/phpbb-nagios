@@ -60,18 +60,15 @@ class main
          */
         protected function get_number_of_active_users()
         {
-            // SQL query 
-            $sql = 'SELECT COUNT(*) FROM '
-                . USERS_TABLE . 
+            // SQL query tp get all active users 
+            $sql = 'SELECT COUNT(*) AS howmany'
+                ' FROM '. USERS_TABLE . 
                 ' WHERE user_type=0';
             $result = $this->db->sql_query($sql);
             $user_count = $this->db->sql_fetchrow($result);
             $this->db->sql_freeresult($result);
 
-            // debug only
-            print_r(array_values($user_count));
-
-            return $user_count[0];
+            return $user_count['howmany'];
         }
 
 	/**
