@@ -76,10 +76,8 @@ class main
         }
 
         /**
-         * Checking if we have a fresh instance of phpBB
+         * Checking if we have a fresh instance of phpBB and setting template vars
          *
-         * @return current and expected version
-         * 
          */
         protected function phpbb_freshness()
         {
@@ -115,7 +113,8 @@ class main
                 ));
             }
 
-            return $updates_available;
+            print_r(array_values(get_defined_vars()));
+
         }
 
 	/**
