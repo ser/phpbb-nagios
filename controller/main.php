@@ -42,6 +42,21 @@ class main
                 $this->template = $template;
 	}
 
+        /**
+         * Count users
+         *
+         * @return number
+         *
+         */
+        protected function get_number_of_active_users()
+        {
+            // SQL query 
+            $sql = 'SELECT COUNT(*) FROM '
+                . USERS_TABLE . 
+                ' WHERE user_type=0';
+            $this->db->sql_query($sql);
+        }
+
 	/**
 	* Nagios controller for route /nagios/{name}
 	*
