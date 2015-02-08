@@ -14,7 +14,7 @@ class main
 	/* @var \phpbb\config\config */
         protected $config;
 
-        /** @var \phpbb\db\driver\driver_interface */
+        /* @var \phpbb\db\driver\driver_interface */
         protected $db;
 
 	/* @var \phpbb\controller\helper */
@@ -23,8 +23,11 @@ class main
 	/* @var \phpbb\template\template */
         protected $template;
 
-        /** @var \phpbb\user */
+        /* @var \phpbb\user */
         protected $user;
+
+        /* @var \phpbb\version_helper */
+        protected $version;
 
 	/**
 	* Constructor
@@ -42,7 +45,8 @@ class main
             \phpbb\db\driver\driver_interface $db, 
             \phpbb\controller\helper $helper, 
             \phpbb\template\template $template,
-            \phpbb\user $user
+            \phpbb\user $user,
+            \phpbb\version_helper $version
             )
 	{
                 $this->config = $config;
@@ -50,6 +54,7 @@ class main
                 $this->helper = $helper;
                 $this->template = $template;
                 $this->user = $user;
+                $this->version = $version;
 	}
 
         /**
