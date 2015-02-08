@@ -91,7 +91,7 @@ class main
             $this->template->assign_var('NAGIOS_STATUS', "ON");
 
             // Count users
-            $regusers = get_number_of_active_users();
+            $regusers = $this->get_number_of_active_users();
             $this->template->assign_var('NAGIOS_ACTIVE_USERS', $regusers);
 
             // And finally display the status page
