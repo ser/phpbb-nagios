@@ -12,7 +12,10 @@ namespace ser\nagios\controller;
 class main
 {
 	/* @var \phpbb\config\config */
-	protected $config;
+        protected $config;
+
+        /** @var \phpbb\db\driver\driver_interface */
+        protected $db;
 
 	/* @var \phpbb\controller\helper */
 	protected $helper;
@@ -20,27 +23,27 @@ class main
 	/* @var \phpbb\template\template */
 	protected $template;
 
-	/* @var \phpbb\user */
-	protected $user;
-
 	/**
 	* Constructor
 	*
-	* @param \phpbb\config\config		$config
-	* @param \phpbb\controller\helper	$helper
-	* @param \phpbb\template\template	$template
-	* @param \phpbb\user				$user
+        * @param \phpbb\config\config		    $config     Config object
+        * @param \phpbb\db\driver\driver_interface  $db         Database object
+        * @param \phpbb\controller\helper	    $helper     Helper object
+	* @param \phpbb\template\template	    $template   Template object
 	*/
-	public function __construct(\phpbb\config\config $config, \phpbb\controller\helper $helper, \phpbb\template\template $template, \phpbb\user $user)
+        public function __construct(\phpbb\config\config $config, 
+            \phpbb\db\driver\driver_interface $db, 
+            \phpbb\controller\helper $helper, 
+            \phpbb\template\template $template)
 	{
-		$this->config = $config;
-		$this->helper = $helper;
-		$this->template = $template;
-		$this->user = $user;
+                $this->config = $config;
+                $this->db = $db;
+                $this->helper = $helper;
+                $this->template = $template;
 	}
 
 	/**
-	* Demo controller for route /demo/{name}
+	* Nagios controller for route /nagios/{name}
 	*
 	* @param string		$name
 	* @return \Symfony\Component\HttpFoundation\Response A Symfony Response object
