@@ -26,6 +26,8 @@ class main
         /* @var \phpbb\user */
         protected $user;
 
+        protected $phpbb_container;
+
 	/**
 	* Constructor
 	*
@@ -80,6 +82,10 @@ class main
         {
 	//$l_message = !$this->config['ser_nagios_state'] ? 'NAGIOS_OFF' : 'NAGIOS_ON';
         //$this->template->assign_var('NAGIOS_ACTIVE_USERS_TEXT', $this->user->lang($l_message, $name));
+            //
+
+            $phpbb_container = new \phpbb_mock_container_builder();
+            $this->phpbb_container = $phpbb_container;
 
             // Checking the phpBB version
             $version_helper = $phpbb_container->get('version_helper');
