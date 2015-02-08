@@ -26,9 +26,6 @@ class main
         /* @var \phpbb\user */
         protected $user;
 
-        /* @var \phpbb\version_helper */
-        //protected $version;
-
 	/**
 	* Constructor
 	*
@@ -46,7 +43,6 @@ class main
             \phpbb\controller\helper $helper, 
             \phpbb\template\template $template,
             \phpbb\user $user
-//            \phpbb\version_helper $version
             )
 	{
                 $this->config = $config;
@@ -54,7 +50,6 @@ class main
                 $this->helper = $helper;
                 $this->template = $template;
                 $this->user = $user;
-//                $this->version = $version;
 	}
 
         /**
@@ -87,8 +82,8 @@ class main
         {
 	//$l_message = !$this->config['ser_nagios_state'] ? 'NAGIOS_OFF' : 'NAGIOS_ON';
         //$this->template->assign_var('NAGIOS_ACTIVE_USERS_TEXT', $this->user->lang($l_message, $name));
-        //
 
+            // Checking the phpBB version
             $version_helper = $phpbb_container->get('version_helper');
 
             // Get translation
