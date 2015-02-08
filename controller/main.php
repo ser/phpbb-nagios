@@ -23,10 +23,10 @@ class main
 	/* @var \phpbb\template\template */
         protected $template;
 
-
         /* @var \phpbb\user */
         protected $user;
 
+        /* @var \Symfony\Component\DependencyInjection\ContainerInterface */
         protected $phpbb_container;
 
 	/**
@@ -37,6 +37,7 @@ class main
         * @param \phpbb\controller\helper	    $helper     Helper object
 	* @param \phpbb\template\template	    $template   Template object
         * @param \phpbb\user                        $user       User object
+        * @param \Symfony\Component\DependencyInjection\ContainerInterface $phpbb_container phpBB full container
         * @return \phpbb\pages\controller\main_controller
         * @access public
 	*/
@@ -74,6 +75,21 @@ class main
             return $user_count['howmany'];
         }
 
+        /**
+         * Checking if we have a fresh instance of phpBB
+         *
+         * @return current and expected version
+         * 
+         */
+        protected function phpbb_freshness()
+        {
+            // we have ready function for it in phpBB core
+            /* @var $version_helper \phpbb\version_helper */
+            $version_helper = $this->phpbb_container->get('version_helper');
+
+            $updates_available = $version_helper->get_suggested_updates($recheck);
+        }
+
 	/**
 	* Nagios controller for route /nagios/{name}
 	*
@@ -85,21 +101,16 @@ class main
         {
 	//$l_message = !$this->config['ser_nagios_state'] ? 'NAGIOS_OFF' : 'NAGIOS_ON';
         //$this->template->assign_var('NAGIOS_ACTIVE_USERS_TEXT', $this->user->lang($l_message, $name));
-            //
 
-            //$phpbb_container = new \phpbb_mock_container_builder();
-            //$this->phpbb_container = $phpbb_container;
-
-            // Checking the phpBB version
-            $version_helper = $this->phpbb_container->get('version_helper');
-
-            print($version_helper);
 
             // Get translation
             $this->user->add_lang_ext('ser/nagios', 'common');
 
             // Nagios status
             $this->template->assign_var('NAGIOS_STATUS', "ON");
+
+            // Checking if we have a fresh instance of phpBB
+            $this->phpbb_freshness();
 
             // Count users
             $regusers = $this->get_number_of_active_users();
