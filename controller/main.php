@@ -52,8 +52,8 @@ class main
                 $this->db = $db;
                 $this->helper = $helper;
                 $this->template = $template;
-                $this->user = $user;
                 $this->phpbb_container = $phpbb_container;
+                $this->user = $user;
 	}
 
         /**
