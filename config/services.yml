@@ -7,4 +7,3 @@ services:
             - @controller.helper
             - @template
             - @user
-            - @version_helper
