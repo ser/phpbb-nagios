@@ -70,14 +70,19 @@ class main
 	/**
 	* Nagios controller for route /nagios/{name}
 	*
-	* @param string		$name
+        * @param string		$name       in config/routing.yml we set the
+        *                                   only option is $name = status whatever user sets
 	* @return \Symfony\Component\HttpFoundation\Response A Symfony Response object
 	*/
 	public function handle($name)
-	{
-		$l_message = !$this->config['ser_nagios_state'] ? 'NAGIOS_OFF' : 'NAGIOS_ON';
-		$this->template->assign_var('NAGIOS_ACTIVE_USERS_TEXT', $this->user->lang($l_message, $name));
+        {
+	//$l_message = !$this->config['ser_nagios_state'] ? 'NAGIOS_OFF' : 'NAGIOS_ON';
+        //$this->template->assign_var('NAGIOS_ACTIVE_USERS_TEXT', $this->user->lang($l_message, $name));
+        //
 
-		return $this->helper->render('nagios_body.html', $name);
+            $user->add_lang_ext('ser/nagios', 'common');
+            regusers = get_number_of_active_users();
+
+            return $this->helper->render('nagios_body.html', $name);
 	}
 
