@@ -7,7 +7,7 @@
 *
 */
 
-namespace ser/nagios;
+namespace ser\nagios;
 
 /**
 * @ignore
