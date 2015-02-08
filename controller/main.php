@@ -27,7 +27,7 @@ class main
         protected $user;
 
         /* @var \phpbb\version_helper */
-        protected $version;
+        //protected $version;
 
 	/**
 	* Constructor
@@ -45,8 +45,8 @@ class main
             \phpbb\db\driver\driver_interface $db, 
             \phpbb\controller\helper $helper, 
             \phpbb\template\template $template,
-            \phpbb\user $user,
-            \phpbb\version_helper $version
+            \phpbb\user $user
+//            \phpbb\version_helper $version
             )
 	{
                 $this->config = $config;
@@ -54,7 +54,7 @@ class main
                 $this->helper = $helper;
                 $this->template = $template;
                 $this->user = $user;
-                $this->version = $version;
+//                $this->version = $version;
 	}
 
         /**
@@ -88,6 +88,8 @@ class main
 	//$l_message = !$this->config['ser_nagios_state'] ? 'NAGIOS_OFF' : 'NAGIOS_ON';
         //$this->template->assign_var('NAGIOS_ACTIVE_USERS_TEXT', $this->user->lang($l_message, $name));
         //
+
+            $version_helper = $phpbb_container->get('version_helper');
 
             // Get translation
             $this->user->add_lang_ext('ser/nagios', 'common');
