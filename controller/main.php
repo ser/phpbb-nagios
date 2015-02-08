@@ -64,7 +64,11 @@ class main
             $sql = 'SELECT COUNT(*) FROM '
                 . USERS_TABLE . 
                 ' WHERE user_type=0';
-            $this->db->sql_query($sql);
+            $result = $this->db->sql_query($sql);
+            $user_count = this->db->sql_fetchrow($result);
+            $this->db->sql_freeresult($result);
+
+            return $user_count;
         }
 
 	/**
@@ -80,7 +84,8 @@ class main
         //$this->template->assign_var('NAGIOS_ACTIVE_USERS_TEXT', $this->user->lang($l_message, $name));
         //
 
-            $user->add_lang_ext('ser/nagios', 'common');
+            $this->user->add_lang_ext('ser/nagios', 'common');
+
             $regusers = get_number_of_active_users();
             $l_message = "ALA"
 
