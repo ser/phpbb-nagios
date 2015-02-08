@@ -92,9 +92,30 @@ class main
             $force_update = true;
             $force_cache = false;
 
-            $updates_available = $version_helper->get_suggested_updates($force_update, $force_cache);
+            try
+            {
+                $updates_available = $version_helper->get_suggested_updates($force_update, $force_cache);
+                print_r(array_values($updates_available));
 
-            print_r(array_values($updates_available));
+                $template->assign_vars(array(
+                    'S_UP_TO_DATE'      => empty($updates_available),
+                    'UP_TO_DATE_MSG'    => $this->user->lang(empty($updates_available) ? 'UP_TO_DATE' : 'NOT_UP_TO_DATE', $md_manager->get_metadata('display-name')),
+                ));
+
+                foreach ($updates_available as $branch => $version_data)
+                {
+                    $template->assign_block_vars('updates_available', $version_data);
+                }
+            }
+            catch (\RuntimeException $e)
+            {
+                $template->assign_vars(array(
+                    'S_VERSIONCHECK_STATUS'      => $e->getCode(),
+                    'VERSIONCHECK_FAIL_REASON'  => ($e->getMessage() !== $user->lang('VERSIONCHECK_FAIL')) ? $e->getMessage() : '',
+                ));
+            }
+
+            return $updates_available;
         }
 
 	/**
@@ -117,7 +138,9 @@ class main
             $this->template->assign_var('NAGIOS_STATUS', "ON");
 
             // Checking if we have a fresh instance of phpBB
-            $this->phpbb_freshness();
+            $updates_available = $this->phpbb_freshness();
+            $template->assign_vars(array(
+            ))
 
             // Count users
             $regusers = $this->get_number_of_active_users();
