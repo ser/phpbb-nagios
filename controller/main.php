@@ -69,7 +69,7 @@ class main
             $this->db->sql_freeresult($result);
 
             // debug only
-            //print_r(array_values($user_count));
+            print_r(array_values($user_count));
 
             return $user_count[0];
         }
