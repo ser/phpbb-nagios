@@ -84,7 +84,7 @@ class main
         //$this->template->assign_var('NAGIOS_ACTIVE_USERS_TEXT', $this->user->lang($l_message, $name));
             //
 
-            $phpbb_container = new \phpbb_mock_container_builder();
+            //$phpbb_container = new \phpbb_mock_container_builder();
             $this->phpbb_container = $phpbb_container;
 
             // Checking the phpBB version
