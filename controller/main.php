@@ -82,7 +82,7 @@ class main
         //$this->template->assign_var('NAGIOS_ACTIVE_USERS_TEXT', $this->user->lang($l_message, $name));
 
             // Checking the phpBB version
-            //$version_helper = $phpbb_container->get('version_helper');
+            $version_helper = $phpbb_container->get('version_helper');
 
             // Get translation
             $this->user->add_lang_ext('ser/nagios', 'common');
