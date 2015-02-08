@@ -44,6 +44,7 @@ class main
             \phpbb\db\driver\driver_interface $db, 
             \phpbb\controller\helper $helper, 
             \phpbb\template\template $template,
+            \Symfony\Component\DependencyInjection\ContainerInterface $phpbb_container,
             \phpbb\user $user
             )
 	{
@@ -52,6 +53,7 @@ class main
                 $this->helper = $helper;
                 $this->template = $template;
                 $this->user = $user;
+                $this->phpbb_container = $phpbb_container;
 	}
 
         /**
@@ -85,10 +87,10 @@ class main
             //
 
             //$phpbb_container = new \phpbb_mock_container_builder();
-            $this->phpbb_container = $phpbb_container;
+            //$this->phpbb_container = $phpbb_container;
 
             // Checking the phpBB version
-            $version_helper = $phpbb_container->get('version_helper');
+            $version_helper = $this->phpbb_container->get('version_helper');
 
             // Get translation
             $this->user->add_lang_ext('ser/nagios', 'common');
