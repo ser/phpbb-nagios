@@ -21,7 +21,10 @@ class main
 	protected $helper;
 
 	/* @var \phpbb\template\template */
-	protected $template;
+        protected $template;
+
+        /** @var \phpbb\user */
+        protected $user;
 
 	/**
 	* Constructor
@@ -30,16 +33,23 @@ class main
         * @param \phpbb\db\driver\driver_interface  $db         Database object
         * @param \phpbb\controller\helper	    $helper     Helper object
 	* @param \phpbb\template\template	    $template   Template object
+        * @param \phpbb\user                        $user       User object
+        * @return \phpbb\pages\controller\main_controller
+        * @access public
 	*/
-        public function __construct(\phpbb\config\config $config, 
+        public function __construct(
+            \phpbb\config\config $config, 
             \phpbb\db\driver\driver_interface $db, 
             \phpbb\controller\helper $helper, 
-            \phpbb\template\template $template)
+            \phpbb\template\template $template,
+            \phpbb\user $user
+            )
 	{
                 $this->config = $config;
                 $this->db = $db;
                 $this->helper = $helper;
                 $this->template = $template;
+                $this->user = $user;
 	}
 
         /**

@@ -1,3 +1,6 @@
-ser_nagios_controller:
+ser_nagios_base_controller:
+    path: /nagios
+    defaults: { _controller: ser.nagios.controller:handle, name: status }
+ser_nagios_status_controller:
     path: /nagios/{name}
     defaults: { _controller: ser.nagios.controller:handle }
