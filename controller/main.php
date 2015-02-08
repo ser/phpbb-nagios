@@ -90,7 +90,7 @@ class main
             // We enforce real check, not relying on ACP standard values, as we
             //      really wan to have fresh information
             $force_update = true;
-            $force_cache = true;
+            $force_cache = false;
 
             $updates_available = $version_helper->get_suggested_updates($force_update, $force_cache);
 
