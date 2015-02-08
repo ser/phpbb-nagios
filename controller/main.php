@@ -111,7 +111,7 @@ class main
             catch (\RuntimeException $e)
             {
                 $this->template->assign_vars(array(
-                    'S_VERSIONCHECK_STATUS'      => $e->getCode(),
+                    'S_VERSIONCHECK_STATUS'     => $e->getCode(),
                     'VERSIONCHECK_FAIL_REASON'  => ($e->getMessage() !== $user->lang('VERSIONCHECK_FAIL')) ? $e->getMessage() : '',
                 ));
             }
@@ -128,12 +128,19 @@ class main
         {
 	//$l_message = !$this->config['ser_nagios_state'] ? 'NAGIOS_OFF' : 'NAGIOS_ON';
         //$this->template->assign_var('NAGIOS_ACTIVE_USERS_TEXT', $this->user->lang($l_message, $name));
-
+            //
+            // get interesting us data directly from config
+            $this->template->assign_vars(array(
+                'TOTAL_USERS'   => $this->config['num_users'],
+                'NUM_TOPICS'    => $this->config['num_topics'],
+                'NUM_POSTS'     => $this->config['num_posts'],
+                'NUM_FILES'     => $this->config['num_files'],
+            ));
 
             // Get translation
             $this->user->add_lang_ext('ser/nagios', 'common');
 
-            // Nagios status
+            // phpBB status
             $this->template->assign_var('NAGIOS_STATUS', "ON");
 
             // Checking if we have a fresh instance of phpBB
