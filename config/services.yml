@@ -3,6 +3,7 @@ services:
         class: ser\nagios\controller\main
         arguments:
             - @config
+            - @dbal.conn
             - @controller.helper
             - @template
             - @user
