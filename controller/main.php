@@ -84,11 +84,17 @@ class main
         //$this->template->assign_var('NAGIOS_ACTIVE_USERS_TEXT', $this->user->lang($l_message, $name));
         //
 
+            // Get translation
             $this->user->add_lang_ext('ser/nagios', 'common');
 
-            $regusers = get_number_of_active_users();
-            $l_message = "ALA";
+            // Nagios status
+            $this->template->assign_var('NAGIOS_STATUS', "ON");
 
+            // Count users
+            $regusers = get_number_of_active_users();
+            $this->template->assign_var('NAGIOS_ACTIVE_USERS', $regusers);
+
+            // And finally display the status page
             return $this->helper->render('nagios_body.html', $name);
 	}
 
