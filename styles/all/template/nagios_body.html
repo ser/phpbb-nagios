@@ -4,10 +4,7 @@
     </head>
     <body>
         <p>
-            {NAGIOS_STATUS}. phpBB is <!-- IF S_UP_TO_DATE --> <!-- ELSE -->NOT<!-- ENDIF --> up to date. {NAGIOS_ACTIVE_USERS}. {UP_TO_DATE_MSG}
-        </p>
-        <p>
-            <!-- IF S_UP_TO_DATE -->
+            {NAGIOS_STATUS}. phpBB version {CURRENT_VERSION} <!-- IF !S_UP_TO_DATE -->NOT<!-- ENDIF --> up to date. {NAGIOS_ACTIVE_USERS}. {UP_TO_DATE_MSG}
         </p>
     </body>
 </html>
