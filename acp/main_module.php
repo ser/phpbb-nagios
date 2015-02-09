@@ -18,10 +18,12 @@ class main_module
 		global $db, $user, $auth, $template, $cache, $request;
 		global $config, $phpbb_root_path, $phpbb_admin_path, $phpEx;
 
-		$user->add_lang('acp/common');
+                // Add the pages ACP lang file
+                $user->add_lang_ext('ser/nagios', 'nagios_acp');
+
 		$this->tpl_name = 'nagios_body';
 		$this->page_title = $user->lang('ACP_NAGIOS_TITLE');
-		add_form_key('ser/nagios');
+                add_form_key('ser/nagios');
 
 		if ($request->is_set_post('submit'))
 		{
