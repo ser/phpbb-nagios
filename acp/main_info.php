@@ -16,9 +16,9 @@ class main_info
 		return array(
 			'filename'	=> '\ser\nagios\acp\main_module',
 			'title'		=> 'ACP_NAGIOS_TITLE',
-			'version'	=> '1.0.0',
+			'version'	=> '0.0.1',
 			'modes'		=> array(
-				'settings'	=> array('title' => 'ACP_NAGIOS', 'auth' => 'ext_ser/nagios && acl_a_board', 'cat' => array('ACP_NAGIOS_TITLE')),
+				'settings'	=> array('title' => 'ACP_NAGIOS', 'auth' => 'ser/nagios && acl_a_board', 'cat' => array('ACP_NAGIOS_TITLE')),
 			),
 		);
 	}
