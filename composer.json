@@ -3,8 +3,8 @@
 	"type": "phpbb-extension",
         "description": "Nagios health monitoring",
         "homepage": "https://github.com/ser/phpbb-nagios",
-	"version": "0.0.1",
-	"time": "2015-02-28",
+	"version": "1.0.0",
+	"time": "2015-03-10",
 	"license": "GPL-2.0",
 	"authors": [{
 			"name": "Serge Victor",
