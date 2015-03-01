@@ -19,8 +19,7 @@ class main_module
 		global $config, $phpbb_root_path, $phpbb_admin_path, $phpEx;
 
                 // Add the pages ACP lang file
-                $user->add_lang_ext('ser/nagios', 'nagios_acp');
-
+                $user->add_lang('acp/common');
 		$this->tpl_name = 'nagios_body';
 		$this->page_title = $user->lang('ACP_NAGIOS_TITLE');
                 add_form_key('ser/nagios');

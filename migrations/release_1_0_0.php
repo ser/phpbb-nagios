@@ -29,11 +29,11 @@ class release_1_0_0 extends \phpbb\db\migration\migration
 			array('module.add', array(
 				'acp',
 				'ACP_CAT_DOT_MODS',
-				'ACP_DEMO_TITLE'
+				'ACP_NAGIOS_TITLE'
 			)),
 			array('module.add', array(
 				'acp',
-				'ACP_DEMO_TITLE',
+				'ACP_NAGIOS_TITLE',
 				array(
 					'module_basename'	=> '\ser\nagios\acp\main_module',
 					'modes'				=> array('settings'),
