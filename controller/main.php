@@ -59,9 +59,22 @@ class main
 	}
 
         /**
-         * Count users
+         * Is phpBB enabled at the moment? and setting appropriate template vars
          *
-         * @return number of active users
+         */
+        protected function is_phpbb_enabled()
+        {
+            // We simply read the config on database 
+            $is_disabled = $this->config['board_disable'];
+
+            if ($is_disabled = "0")
+                $this->template->assign_var('NAGIOS_ON', "ON");
+            else
+                $this->template->assign_var('NAGIOS_ON', "OFF");
+        }
+
+        /**
+         * Count users and setting appropriate template vars
          *
          */
         protected function get_number_of_active_users()
@@ -72,7 +85,7 @@ class main
             $user_count = $this->db->sql_fetchrow($result);
             $this->db->sql_freeresult($result);
 
-            return $user_count['howmany'];
+            $this->template->assign_var('NAGIOS_ACTIVE_USERS', $user_count['howmany']);
         }
 
         /**
@@ -141,14 +154,16 @@ class main
             $this->user->add_lang_ext('ser/nagios', 'common');
 
             // phpBB status
-            $this->template->assign_var('NAGIOS_STATUS', "ON");
+            //      and setting appropriate template settings
+            $is_enabled = $this->is_phpbb_enabled();
 
             // Checking if we have a fresh instance of phpBB
+            //      and setting appropriate template settings
             $updates_available = $this->phpbb_freshness();
 
             // Count users
+            //      and setting appropriate template settings
             $regusers = $this->get_number_of_active_users();
-            $this->template->assign_var('NAGIOS_ACTIVE_USERS', $regusers);
 
             // And finally display the status page
             return $this->helper->render('nagios_body.html');
