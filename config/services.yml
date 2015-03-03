@@ -8,3 +8,10 @@ services:
             - @template
             - @user
             - @service_container
+    ser.nagios.listener:
+        class: ser\nagios\event\main_listener
+        arguments:
+            - @controller.helper
+            - @template
+        tags:
+            - { name: event.listener }
