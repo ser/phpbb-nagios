@@ -123,7 +123,7 @@ class main
             {
                 $this->template->assign_vars(array(
                     'S_VERSIONCHECK_STATUS'     => $e->getCode(),
-                    'VERSIONCHECK_FAIL_REASON'  => ($e->getMessage() !== $user->lang('VERSIONCHECK_FAIL')) ? $e->getMessage() : '',
+                   // 'VERSIONCHECK_FAIL_REASON'  => ($e->getMessage() !== $user->lang('VERSIONCHECK_FAIL')) ? $e->getMessage() : '',
                 ));
             }
         }
