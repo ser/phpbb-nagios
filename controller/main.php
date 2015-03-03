@@ -67,10 +67,8 @@ class main
             // We simply read the config on database 
             $is_disabled = $this->config['board_disable'];
 
-            if ($is_disabled = "0")
-                $this->template->assign_var('NAGIOS_ON', "ON");
-            else
-                $this->template->assign_var('NAGIOS_ON', "OFF");
+            if ($is_disabled == 0)
+                $this->template->assign_var('NAGIOS_ON', empty($is_disabled));
         }
 
         /**

@@ -4,7 +4,7 @@
     </head>
     <body>
         <p>
-            {NAGIOS_STATUS}. phpBB version {CURRENT_VERSION} is <!-- IF !S_UP_TO_DATE -->NOT<!-- ENDIF --> up to date. <!-- IF !S_UP_TO_DATE --><!-- BEGIN updates_available -->There is a new version {updates_available.current}. More information: {updates_available.announcement}<!-- END updates_available --><!-- ENDIF --> Active users: {NAGIOS_ACTIVE_USERS}.
+            <!-- IF !NAGIOS_ON -->CRITICAL. phpBB is disabled by the administrator. <!-- ELSE --><!-- IF !S_UP_TO_DATE -->WARNING. phpBB version {CURRENT_VERSION} is NOT up to date.<!-- BEGIN updates_available -->There is a new version {updates_available.current}. More information: {updates_available.announcement}<!-- END updates_available --><!-- ELSE -->OK. Server is enabled. phpBB version {CURRENT_VERSION} is up to date.<!-- ENDIF --><!-- ENDIF --> {NAGIOS_ACTIVE_USERS} from {TOTAL_USERS} users activated their accounts. Topics: {NUM_TOPICS}. Posts: {NUM_POSTS}. Files: {NUM_FILES}. 
         </p>
     </body>
 </html>
