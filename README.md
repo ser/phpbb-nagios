@@ -23,11 +23,14 @@ users.
 
 If your forum is fine, the extension simply serves you a web page consisting of one line:
 
-`OK. phpBB forum is ON. The current 3.1.3 version is up to date. 2453345 registered users.`
+`OK. Board is enabled. phpBB version 3.1.3 is up to date. 45993 from 67887 registered
+users activated their accounts. Topics: 8473. Posts: 299845. Files: 7634.`
 
 If something is wrong, it servers a line like that:
 
-`WARNING. phpBB forum is ON. The current 3.1.2 version is NOT up to date. 2453345 registered users.`
+`WARNING. phpBB forum is ON. The current 3.1.2 version is NOT up to date. 45993
+from 67887 registered users activated their accounts. Topics: 8473. Posts:
+299845. Files: 7634.`
 
 ## The author
 
