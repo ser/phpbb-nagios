@@ -1,4 +1,5 @@
 [![Code Climate](https://codeclimate.com/github/ser/phpbb-nagios/badges/gpa.svg)](https://codeclimate.com/github/ser/phpbb-nagios)
+[![Build Status](https://travis-ci.org/ser/phpbb-nagios.svg?branch=master)](https://travis-ci.org/ser/phpbb-nagios)
 
 ###### Stage `ALPHA`, absolutely not ready for production!
 # phpbb-nagios
