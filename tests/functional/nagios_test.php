@@ -22,7 +22,7 @@ class nagios_test extends \phpbb_functional_test_case
 	public function test_ser_nagios()
 	{
 		$crawler = self::request('GET', 'app.php/nagios/status');
-		$this->assertContains('phpBB', $crawler->filter('h2')->text());
+		$this->assertContains('phpBB', $crawler->filter('p')->text());
 
 		$this->add_lang_ext('ser/nagios', 'common');
 		//$this->assertContains($this->lang('DEMO_HELLO', 'acme'), $crawler->filter('h2')->text());
