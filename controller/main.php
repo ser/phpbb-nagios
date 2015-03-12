@@ -42,9 +42,9 @@ class main
 	* @access public
 	*/
 	public function __construct(
-		\phpbb\config\config $config, 
-		\phpbb\db\driver\driver_interface $db, 
-		\phpbb\controller\helper $helper, 
+		\phpbb\config\config $config,
+		\phpbb\db\driver\driver_interface $db,
+		\phpbb\controller\helper $helper,
 		\phpbb\template\template $template,
 		\phpbb\user $user,
 		\Symfony\Component\DependencyInjection\ContainerInterface $phpbb_container
@@ -64,11 +64,12 @@ class main
 	*/
 	protected function is_phpbb_enabled()
 	{
-	// We simply read the config on database 
+		// We simply read the config on database
 		$is_disabled = $this->config['board_disable'];
 
-	if ($is_disabled == 0)
-		$this->template->assign_var('NAGIOS_ON', empty($is_disabled));
+		if ($is_disabled == 0) {
+			$this->template->assign_var('NAGIOS_ON', empty($is_disabled));
+		}	
 	}
 
 	/**
@@ -77,7 +78,7 @@ class main
 	*/
 	protected function get_number_of_active_users()
 	{
-		// SQL query tp get all active users 
+		// SQL query tp get all active users
 		$sql = 'SELECT COUNT(*) AS howmany FROM ' . USERS_TABLE . ' WHERE user_type=0';
 		$result = $this->db->sql_query($sql);
 		$user_count = $this->db->sql_fetchrow($result);
