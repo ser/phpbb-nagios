@@ -14,7 +14,7 @@ class main
 	/* @var \phpbb\config\config */
 	protected $config;
 
-        /* @var \phpbb\db\driver\driver_interface */
+	/* @var \phpbb\db\driver\driver_interface */
 	protected $db;
 
 	/* @var \phpbb\controller\helper */
@@ -23,23 +23,23 @@ class main
 	/* @var \phpbb\template\template */
 	protected $template;
 
-        /* @var \phpbb\user */
+	/* @var \phpbb\user */
 	protected $user;
 
-        /* @var \Symfony\Component\DependencyInjection\ContainerInterface */
+	/* @var \Symfony\Component\DependencyInjection\ContainerInterface */
 	protected $phpbb_container;
 
 	/**
 	* Constructor
 	*
-        * @param \phpbb\config\config		    $config     Config object
-        * @param \phpbb\db\driver\driver_interface  $db         Database object
-        * @param \phpbb\controller\helper	    $helper     Helper object
+	* @param \phpbb\config\config		    $config     Config object
+	* @param \phpbb\db\driver\driver_interface  $db         Database object
+	* @param \phpbb\controller\helper	    $helper     Helper object
 	* @param \phpbb\template\template	    $template   Template object
-        * @param \phpbb\user                        $user       User object
-        * @param \Symfony\Component\DependencyInjection\ContainerInterface $phpbb_container phpBB full container
-        * @return \phpbb\pages\controller\main_controller
-        * @access public
+	* @param \phpbb\user                        $user       User object
+	* @param \Symfony\Component\DependencyInjection\ContainerInterface $phpbb_container phpBB full container
+	* @return \phpbb\pages\controller\main_controller
+	* @access public
 	*/
 	public function __construct(
 	    \phpbb\config\config $config, 
@@ -58,23 +58,23 @@ class main
 	    $this->phpbb_container = $phpbb_container;
 	}
 
-        /**
-         * Is phpBB enabled at the moment? and setting appropriate template vars
-         *
-         */
+	/**
+	* Is phpBB enabled at the moment? and setting appropriate template vars
+	*
+	*/
 	protected function is_phpbb_enabled()
 	{
-            // We simply read the config on database 
+	// We simply read the config on database 
 	    $is_disabled = $this->config['board_disable'];
 
 	if ($is_disabled == 0)
 	    $this->template->assign_var('NAGIOS_ON', empty($is_disabled));
 	}
 
-        /**
-         * Count users and setting appropriate template vars
-         *
-         */
+	/**
+	* Count users and setting appropriate template vars
+	*
+	*/
 	protected function get_number_of_active_users()
 	{
 	    // SQL query tp get all active users 
@@ -86,10 +86,10 @@ class main
 	    $this->template->assign_var('NAGIOS_ACTIVE_USERS', $user_count['howmany']);
 	}
 
-        /**
-         * Checking if we have a fresh instance of phpBB and setting template vars
-         *
-         */
+	/**
+	* Checking if we have a fresh instance of phpBB and setting template vars
+	*
+	*/
 	protected function phpbb_freshness()
 	{
 
@@ -131,13 +131,13 @@ class main
 	/**
 	* Nagios controller for route /nagios/{name}
 	*
-        * @param string		$name       in config/routing.yml we set the
-        *                                   only option is $name = status whatever user sets
+	* @param string		$name       in config/routing.yml we set the
+	*                                   only option is $name = status whatever user sets
 	* @return \Symfony\Component\HttpFoundation\Response A Symfony Response object
 	*/
 	public function handle($name)
 	{
-            // get interesting us data directly from config
+	    // get interesting us data directly from config
 	    $this->template->assign_vars(array(
 		'TOTAL_USERS'   => $this->config['num_users'],
 		'NUM_TOPICS'    => $this->config['num_topics'],
@@ -152,16 +152,15 @@ class main
 	    //      and setting appropriate template settings
 	    $is_enabled = $this->is_phpbb_enabled();
 
-            // Checking if we have a fresh instance of phpBB
-            //      and setting appropriate template settings
+	// Checking if we have a fresh instance of phpBB
+	//      and setting appropriate template settings
 	    $updates_available = $this->phpbb_freshness();
 
-            // Count users
-            //      and setting appropriate template settings
+	// Count users
+	//      and setting appropriate template settings
 	    $regusers = $this->get_number_of_active_users();
 
-            // And finally display the status page
+	// And finally display the status page
 	    return $this->helper->render('nagios_body.html');
 	}
 }
-
