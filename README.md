@@ -13,10 +13,10 @@ This extension helps to monitor a production phpBB forum, reporting its health.
 The most basic check is done by serving any valid 200 response. It means that
 web server is working. Additionally, the nagios phpBB extension checks:
 
-- [ ] it checks and servers the version of phpBB, if the phpBB version is not up to date, the extension sends a `WARNING` with a short explanation,
-- [ ] it checks if the forum is ON, if not, the extension serves a `WARNING` with a short
+- [x] it checks and servers the version of phpBB, if the phpBB version is not up to date, the extension sends a `WARNING` with a short explanation,
+- [x] it checks if the forum is ON, if not, the extension serves a `WARNING` with a short
 explanation,
-- [ ] for statistical purposes, the extension provides an amount of currently registered
+- [x] for statistical purposes, the extension provides an amount of currently registered
 users.
 
 #### What precisely do I get from this extension?
@@ -34,7 +34,57 @@ from 67887 registered users activated their accounts. Topics: 8473. Posts:
 
 #### How do I connect nagios/icinga to this information?
 
-For all monitoring I am personally using passive checks. This is a script I am running from cron every five minutes:
+For all monitoring I am personally using passive checks. These are scripts I am running from cron every five minutes via nsca:
+
+check-phpbb.sh
+```bash
+#!/bin/bash
+curl -s https://yoursite.com/phpBB/nagios | html2text -width 800 | tail -n +2
+```
+
+send-phpbb.sh
+```bash
+#!/bin/bash
+HOST='server'
+SERVICE='phpbb'
+COMMAND=check-phpbb.sh
+WRAPPER=/opt/nsca_wrapper
+SENDNSCA=/usr/sbin/send_nsca
+
+$WRAPPER -H $HOST -S $SERVICE -C "$COMMAND" -b $SENDNSCA
+```
+
+Nagios server config files look like that:
+
+```
+define service {
+        hostgroup_name                  www-servers
+        service_description             phpbb
+        active_checks_enabled           0
+        check_freshness                 1
+        freshness_threshold             300
+        use                             generic-service
+        check_command                   check_dummy!1
+        notification_interval           0 ; set > 0 if you want to be renotified
+}
+```
+
+```
+define hostgroup {
+        hostgroup_name 			www-servers
+        alias 				www
+        members 			server
+}
+```
+
+```
+define host {
+        use 				nonping-host
+        host_name 			server
+        address 			yoursite.com
+}
+```
+It is out of scope of this manual to explain Nagios configuration in more details.
 
 ## The author
 
