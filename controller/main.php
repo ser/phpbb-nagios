@@ -69,7 +69,7 @@ class main
 
 		if ($is_disabled == 0) {
 			$this->template->assign_var('NAGIOS_ON', empty($is_disabled));
-		}	
+		}
 	}
 
 	/**
