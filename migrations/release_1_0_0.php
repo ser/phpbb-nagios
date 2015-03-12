@@ -13,7 +13,7 @@ class release_1_0_0 extends \phpbb\db\migration\migration
 {
 	public function effectively_installed()
 	{
-                return isset($this->config['ser_nagios_state']);
+		return isset($this->config['ser_nagios_state']);
 	}
 
 	static public function depends_on()
