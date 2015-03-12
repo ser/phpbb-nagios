@@ -1,6 +1,5 @@
-[![Code Climate](https://codeclimate.com/github/ser/phpbb-nagios/badges/gpa.svg)](https://codeclimate.com/github/ser/phpbb-nagios)
 [![Build Status](https://travis-ci.org/ser/phpbb-nagios.svg?branch=master)](https://travis-ci.org/ser/phpbb-nagios)
-
+[![Code Climate](https://codeclimate.com/github/ser/phpbb-nagios/badges/gpa.svg)](https://codeclimate.com/github/ser/phpbb-nagios)
 ###### Stage `ALPHA`, absolutely not ready for production!
 # phpbb-nagios
 A nagios phpBB extension for forum health monitoring.
@@ -32,6 +31,10 @@ If something is wrong, it servers a line like that:
 `WARNING. phpBB forum is ON. The current 3.1.2 version is NOT up to date. 45993
 from 67887 registered users activated their accounts. Topics: 8473. Posts:
 299845. Files: 7634.`
+
+#### How do I connect nagios/icinga to this information?
+
+For all monitoring I am personally using passive checks. This is a script I am running from cron every five minutes:
 
 ## The author
 
