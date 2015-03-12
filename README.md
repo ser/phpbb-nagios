@@ -1,6 +1,5 @@
 [![Build Status](https://travis-ci.org/ser/phpbb-nagios.svg?branch=master)](https://travis-ci.org/ser/phpbb-nagios)
 [![Code Climate](https://codeclimate.com/github/ser/phpbb-nagios/badges/gpa.svg)](https://codeclimate.com/github/ser/phpbb-nagios)
-###### Stage `ALPHA`, absolutely not ready for production!
 # phpbb-nagios
 A nagios phpBB extension for forum health monitoring.
 
@@ -11,13 +10,15 @@ This extension helps to monitor a production phpBB forum, reporting its health.
 #### What is being checked?
 
 The most basic check is done by serving any valid 200 response. It means that
-web server is working. Additionally, the nagios phpBB extension checks:
+web server is working. Additionally, the nagios phpBB extension:
 
-- [x] it checks and servers the version of phpBB, if the phpBB version is not up to date, the extension sends a `WARNING` with a short explanation,
-- [x] it checks if the forum is ON, if not, the extension serves a `WARNING` with a short
-explanation,
+- [x] checks and serves the version of phpBB, if the phpBB version is not up to 
+date, the extension sends a `WARNING` with a short explanation,
+- [x] checks if the forum is ON, if not, the extension serves a `WARNING` with
+a short explanation,
 - [x] for statistical purposes, the extension provides an amount of currently registered
-users.
+users and other useful statistical data, which can be stored by your nagios
+instance.
 
 #### What precisely do I get from this extension?
 
@@ -34,7 +35,8 @@ from 67887 registered users activated their accounts. Topics: 8473. Posts:
 
 #### How do I connect nagios/icinga to this information?
 
-For all monitoring I am personally using passive checks. These are scripts I am running from cron every five minutes via nsca:
+For all monitoring I am personally using passive checks. These are scripts I am running
+from cron every five minutes via nsca:
 
 check-phpbb.sh
 ```bash
