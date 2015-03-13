@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/ser/phpbb-nagios.svg?branch=master)](https://travis-ci.org/ser/phpbb-nagios)
 [![Code Climate](https://codeclimate.com/github/ser/phpbb-nagios/badges/gpa.svg)](https://codeclimate.com/github/ser/phpbb-nagios)
-[![BETA](http://blog.proresource.com/wp-content/uploads/2014/02/beta-testing-300x144.jpg)]
+![BETA](http://blog.proresource.com/wp-content/uploads/2014/02/beta-testing-300x144.jpg)
 # phpbb-nagios
 A nagios phpBB extension for forum health monitoring.
 
