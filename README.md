@@ -1,5 +1,6 @@
 [![Build Status](https://travis-ci.org/ser/phpbb-nagios.svg?branch=master)](https://travis-ci.org/ser/phpbb-nagios)
 [![Code Climate](https://codeclimate.com/github/ser/phpbb-nagios/badges/gpa.svg)](https://codeclimate.com/github/ser/phpbb-nagios)
+[![BETA](http://blog.proresource.com/wp-content/uploads/2014/02/beta-testing-300x144.jpg)]
 # phpbb-nagios
 A nagios phpBB extension for forum health monitoring.
 
@@ -35,8 +36,8 @@ from 67887 registered users activated their accounts. Topics: 8473. Posts:
 
 #### How do I connect nagios/icinga to this information?
 
-For all monitoring I am personally using passive checks. These are scripts I am running
-from cron every five minutes via nsca:
+For all monitoring I am personally using passive checks only. These are 
+scripts I am running from cron every five minutes via nsca:
 
 check-phpbb.sh
 ```bash
@@ -60,30 +61,30 @@ Nagios server config files look like that:
 
 ```
 define service {
-        hostgroup_name                  www-servers
-        service_description             phpbb
-        active_checks_enabled           0
-        check_freshness                 1
-        freshness_threshold             300
-        use                             generic-service
-        check_command                   check_dummy!1
-        notification_interval           0 ; set > 0 if you want to be renotified
+	hostgroup_name			www-servers
+	service_description		phpbb
+	active_checks_enabled		0
+	check_freshness			1
+	freshness_threshold		300
+	use				generic-service
+	check_command			check_dummy!1
+	notification_interval		0 ; set > 0 if you want to be renotified
 }
 ```
 
 ```
 define hostgroup {
-        hostgroup_name 			www-servers
-        alias 				www
-        members 			server
+	hostgroup_name			www-servers
+	alias 				www
+	members 			server
 }
 ```
 
 ```
 define host {
-        use 				nonping-host
-        host_name 			server
-        address 			yoursite.com
+	use 				nonping-host
+	host_name 			server
+	address 			yoursite.com
 }
 ```
 It is out of scope of this manual to explain Nagios configuration in more details.
@@ -97,8 +98,8 @@ https://www.phpbb.com/community/viewtopic.php?f=456&t=2294286
 
 Please do not hesitate to send github pull requests or create issues :-)
 
-Thanks to #phpbb IRC channel members for consultations during all stages of
-development of this extension.
+Thanks to #phpbb-dev IRC channel members for some consultations during
+all stages of development of this extension.
 
 ## License
 
